@@ -10,12 +10,16 @@ See [Ts.ED](https://tsed.io) project for more information.
 
 ```batch
 # install dependencies
-$ yarn install
+$ npm install
 
 # serve
-$ yarn start
+$ npm run start
+
+# serve with mongodb in docker
+$ npm run docker:build # only need to build once
+$ npm run docker
 
 # build for production
-$ yarn build
-$ yarn start:prod
+$ npm run build
+$ npm run start:prod
 ```
