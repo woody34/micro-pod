@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  micropod:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.prod
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    image: 'micro-pod/server:latest'
+    ports:
+      - '8081:8081'
+    stdin_open: true
+    tty: true
