@@ -11,13 +11,5 @@ services:
     image: 'micro-pod/server:latest'
     ports:
       - '8081:8081'
-    volumes: 
-      - .:/code
     stdin_open: true
     tty: true
-  mongodb:
-    image: 'mongo:4.1'
-    ports:
-      - '27017:27017'
-    expose:
-      - "27017"

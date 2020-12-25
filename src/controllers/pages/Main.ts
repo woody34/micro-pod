@@ -1,10 +1,11 @@
 import {Constant, Controller, Get, HeaderParams, View} from "@tsed/common";
 import {Hidden, SwaggerSettings} from "@tsed/swagger";
 import {Returns} from "@tsed/schema";
+import config from '../../../package.json';
 
 @Hidden()
 @Controller("/")
-export class IndexCtrl {
+export class MainControlller {
   @Constant("swagger")
   swagger: SwaggerSettings[];
 

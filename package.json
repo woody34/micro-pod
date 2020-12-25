@@ -18,6 +18,7 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
     "method-override": "^3.0.0",
     "mongoose": "^5.11.8"
   },
@@ -48,16 +49,19 @@
   "readme": "ERROR: No README data found!",
   "scripts": {
     "build": "npm run tsc",
-    "docker": "docker-compose up",
-    "docker:build": "docker-compose build",
-    "docker:prod": "docker-compose -f docker-compose.prod.yml build && docker-compose -f docker-compose.prod.yml up",
+    "docker": "docker-compose -f docker-compose.dev.yml up",
+    "docker:build": "docker-compose -f docker-compose.dev.yml build",
+    "docker:prod": "docker-compose build && docker-compose up",
     "start": "nodemon --watch \"src/**/*.ts\" --ignore \"node_modules/**/*\" --exec ts-node src/index.ts",
-    "start:prod": "cross-env NODE_ENV=production node dist/index.js",
+    "start:prod": "cross-env NODE_ENV=production node dist/src/index.js",
     "test": "npm run test:lint && npm run test:coverage",
     "test:coverage": "npm run test:unit",
     "test:unit": "cross-env NODE_ENV=test jest",
     "tsc": "tsc --project tsconfig.compile.json",
-    "tsc:w": "tsc --project tsconfig.json -w"
+    "tsc:w": "tsc --project tsconfig.json -w",
+    "heroku:build": "heroku container:login && heroku container:push web --remote heroku",
+    "heroku:release": "heroku container:release web --remote heroku",
+    "heroku:open": "heroku open --remote heroku"
   },
   "version": "1.0.0"
 }

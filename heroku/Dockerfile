@@ -68,10 +68,8 @@ COPY . .
 
 RUN npm ci
 
-RUN rm -rf ./dist
-
 RUN npm run build
 
-EXPOSE 8081
+EXPOSE 5000
 
 CMD [ "npm", "run",  "start:prod" ]

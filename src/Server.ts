@@ -11,7 +11,8 @@ import "@tsed/swagger";
 import "@tsed/mongoose";
 import mongooseConfig from "./config/mongoose";
 
-import { IndexCtrl } from "./controllers/pages/IndexCtrl";
+import { MainControlller } from "./controllers/pages/Main";
+import { AppController } from "./controllers/Version";
 
 
 export const rootDir = __dirname;
@@ -19,21 +20,21 @@ export const rootDir = __dirname;
 @Configuration({
   rootDir,
   acceptMimes: ["application/json"],
-  httpPort: process.env.PORT || 8083,
+  httpPort: process.env.PORT || 8081,
   httpsPort: false, // CHANGE
   mount: {
-    "/rest": [
+    "/api": [
       `${rootDir}/controllers/**/*.ts`
     ],
-    "/": [IndexCtrl]
+    "/": [MainControlller]
   },
   swagger: [
     {
-      path: "/v2/docs",
+      path: "/docs/v2",
       specVersion: "2.0"
     },
     {
-      path: "/v3/docs",
+      path: "/docs/v3",
       specVersion: "3.0.1"
     }
   ],
